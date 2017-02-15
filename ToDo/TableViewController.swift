@@ -123,23 +123,18 @@ class TableViewController: UITableViewController {
         let ok = UIAlertAction(title: "Спасибо!", style: .default, handler: { (action) -> Void in
             print("Ok Button Pressed")
         })
-        //let cancel = UIAlertAction(title: "Отменить", style: .cancel) { (action) -> Void in
-        //    print("Cancel Button Pressed")
-        //}
         alertController.addAction(ok)
-        //alertController.addAction(cancel)
-        //alertController.addTextField { (textField) -> Void in
-            // Enter the textfiled customization code here.
-            //loginTextField = textField
-            //loginTextField?.placeholder = "Ваша задача"
-        //}
-        //if (ok.isEnabled){
-        
         self.tableView.reloadData()
-        //}
-        
-        //tableView.reloadData()
+
         present(alertController, animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        cell.alpha = 0
+        
+        UIView.animate(withDuration: 1.0, animations: {cell.alpha = 1})
+        
     }
 
     /*
